@@ -15,7 +15,7 @@ function App() {
 
     try {
       const res = await axios.get(
-        `http://127.0.0.1:8000/recommend?query=${q}`
+        `https://ai-recommendation-engine-b73q.vercel.app/`
       );
       setResults(res.data.results);
     } catch {

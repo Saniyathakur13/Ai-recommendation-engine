@@ -1,17 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import json
-import os
+
 from .dataset import items
 
 app = FastAPI()
-
-# 📁 Base directory (safe path)
-possible_paths = [
-    os.path.join(os.path.dirname(__file__), "data.json"), # Same folder
-    os.path.join(os.getcwd(), "backend", "data.json"),   # Inside backend
-    os.path.join(os.getcwd(), "data.json")               # Root folder
-]
 
 # ✅ CORS (allow frontend)
 app.add_middleware(
@@ -23,20 +15,7 @@ app.add_middleware(
 )
 
 # 📂 LOAD DATA FROM JSON FILE
-try:
-    with open(DATA_PATH, "r") as f:
-        items = json.load(f)
-except Exception as e:
-    print(f"Error: {e}")
-    items = []
-for path in possible_paths:
-    if os.path.exists(path):
-        try:
-            with open(path, "r") as f:
-                items = json.load(f)
-            if items: break # Stop if we found it!
-        except:
-            continue
+
 
 
 # 🔍 SMART SEARCH (NO DUPLICATES)

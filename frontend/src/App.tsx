@@ -15,7 +15,7 @@ function App() {
 
     try {
       const res = await axios.get(
-        `https://ai-recommendation-engine-b73q.vercel.app/recommend?query=${q}`
+        `http://127.0.0.1:8000/recommend?query=${q}`
       );
       setResults(res.data.results);
     } catch {
@@ -25,7 +25,7 @@ function App() {
     setLoading(false);
   };
   useEffect(() => {
-  axios.get("https://ai-recommendation-engine-b73q.vercel.app")
+  axios.get("http://127.0.0.1:8000/categories")
     .then(res => setCategories(res.data.categories))
     .catch(err => console.error(err));
 }, []);

@@ -1,24 +1,6 @@
-# Web Framework
 fastapi
 uvicorn
-
-# Data Science & ML Core
 pandas
-numpy
 scikit-learn
-
-# AI & Embeddings (Sentence Transformers)
-sentence-transformers
-torch
-
-# Vector Database / Similarity Search
-faiss-cpu
-
-# Database Connectors
-psycopg2-binary
-pymongo
-redis
-
-# Utilities
+numpy
 python-dotenv
-axios

@@ -6,8 +6,11 @@ import os
 app = FastAPI()
 
 # 📁 Base directory (safe path)
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(BASE_DIR, "data.json")
+possible_paths = [
+    os.path.join(os.path.dirname(__file__), "data.json"), # Same folder
+    os.path.join(os.getcwd(), "backend", "data.json"),   # Inside backend
+    os.path.join(os.getcwd(), "data.json")               # Root folder
+]
 
 # ✅ CORS (allow frontend)
 app.add_middleware(
@@ -25,6 +28,14 @@ try:
 except Exception as e:
     print(f"Error: {e}")
     items = []
+for path in possible_paths:
+    if os.path.exists(path):
+        try:
+            with open(path, "r") as f:
+                items = json.load(f)
+            if items: break # Stop if we found it!
+        except:
+            continue
 
 
 # 🔍 SMART SEARCH (NO DUPLICATES)
@@ -51,10 +62,10 @@ def search_items(query: str):
 @app.get("/")
 def home():
     return {
-        "message": "AI Recommendation Backend running 🚀",
-        "total_items": len(items)
+        "message": "Backend is Live!",
+        "total_items": len(items),
+        "file_found": any(os.path.exists(p) for p in possible_paths)
     }
-
 
 # 📂 GET ALL CATEGORIES
 @app.get("/categories")

@@ -1,5 +1,5 @@
 # AI Recommendation Engine 🚀
-
+vercel link- https://ai-recommendation-engine-tawny.vercel.app/
 ## 📌 Overview
 
 An AI-inspired recommendation engine that suggests products based on user search queries. Built with a modern full-stack architecture using React (frontend) and FastAPI (backend).

@@ -7,6 +7,7 @@ app = FastAPI()
 
 # 📁 Base directory (safe path)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data.json")
 
 # ✅ CORS (allow frontend)
 app.add_middleware(
@@ -19,11 +20,10 @@ app.add_middleware(
 
 # 📂 LOAD DATA FROM JSON FILE
 try:
-    with open(os.path.join(BASE_DIR, "data.json"), "r", encoding="utf-8") as f:
+    with open(DATA_PATH, "r") as f:
         items = json.load(f)
-        print(f"✅ Loaded {len(items)} items")
-except FileNotFoundError:
-    print("❌ data.json not found! Run 'python generate_data.py' first.")
+except Exception as e:
+    print(f"Error: {e}")
     items = []
 
 

@@ -18,9 +18,10 @@ function App() {
   `https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app/recommend?query=${q}`
 );
       setResults(res.data.results);
-    } catch {
-      setResults(["Error fetching results"]);
-    }
+    } catch (err) {
+  console.error(err);
+  setResults([]);
+}
 
     setLoading(false);
   };

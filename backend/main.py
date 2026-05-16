@@ -8,7 +8,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     # Remove the "/" at the end of the URL - it must match exactly!
-    allow_origins=["https://ai-recommendation-engine-tawny.vercel.app"], 
+    allow_origins=["https://ai-recommendation-engine-ebon.vercel.app/"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

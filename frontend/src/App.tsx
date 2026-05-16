@@ -14,9 +14,9 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.get(
-        `http://127.0.0.1:8000/recommend?query=${q}`
-      );
+     const res = await axios.get(
+  `https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app/recommend?query=${q}`
+);
       setResults(res.data.results);
     } catch {
       setResults(["Error fetching results"]);
@@ -25,7 +25,7 @@ function App() {
     setLoading(false);
   };
   useEffect(() => {
-  axios.get("http://127.0.0.1:8000/categories")
+  axios.get("https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app/categories")
     .then(res => setCategories(res.data.categories))
     .catch(err => console.error(err));
 }, []);

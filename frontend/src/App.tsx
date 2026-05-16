@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const API = "https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app";
+const API = "https://ai-recommendation-engine-b73q.vercel.app/";
 
 function App() {
   const [query, setQuery] = useState("");

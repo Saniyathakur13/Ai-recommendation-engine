@@ -15,7 +15,7 @@ function App() {
 
     try {
      const res = await axios.get(
-  `https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app//recommend?query=${q}`
+  `https://ai-recommendation-engine-b73q-e5gy29epz-sst-bcb7fdcf.vercel.app/recommend?query=${q}`
 );
       setResults(res.data.results);
     } catch {

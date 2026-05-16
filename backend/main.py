@@ -66,3 +66,4 @@ def recommend(query: str = ""):
         }
 
     return {"results": results}
+    app = app

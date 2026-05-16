@@ -7,13 +7,14 @@ app = FastAPI()
 # ✅ CORS (allow frontend)
 app.add_middleware(
     CORSMiddleware,
-    # Remove the "/" at the end of the URL - it must match exactly!
-    allow_origins=["https://ai-recommendation-engine-ebon.vercel.app/"], 
+    allow_origins=[
+        "http://localhost:5173",
+        "https://ai-recommendation-engine-ebon.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # 🔍 SMART SEARCH (NO DUPLICATES)
 def search_items(query: str):
     query = query.lower().strip()
